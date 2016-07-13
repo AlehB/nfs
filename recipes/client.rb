@@ -1,4 +1,3 @@
-
 package 'nfs-utils'
 package 'nfs-utils-lib'
 
@@ -10,6 +9,7 @@ execute "run startup scripts" do
   EOH
 end
 
-execute "mount share" do
-  command 'mount 192.168.100.30:/var/www/wordpress/ /var/www/wordpress/'
+mount '/var/www/wordpress/' do
+  device '192.168.100.30:/var/www/wordpress/'
+  options 'rw'
 end
